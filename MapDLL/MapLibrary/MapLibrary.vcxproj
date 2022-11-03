@@ -133,12 +133,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\phase-1\mapReduceCMake\src\FileIO\FileIO.h" />
+    <ClInclude Include="FileIO.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MapLibrary.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\phase-1\mapReduceCMake\src\FileIO\FileIO.cpp" />
+    <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MapLibrary.cpp" />
   </ItemGroup>
