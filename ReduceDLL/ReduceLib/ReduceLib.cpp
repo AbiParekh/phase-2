@@ -1,9 +1,8 @@
 #include "ReduceLib.h"
 #include "framework.h"
 
-#include "Reduce.h"
-#include "MapReduceSorter.h"
-#include "fileIO.h"
+//#include "MapReduceSorter.h"
+//#include "fileIO.h"
 #include <iostream>
 #include <stdio.h>
 #include <string>

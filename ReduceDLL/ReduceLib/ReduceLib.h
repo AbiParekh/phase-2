@@ -6,6 +6,7 @@
 #define REDUCELIB_API __declspec(dllexport)
 #else
 #define REDUCELIB_API __declspec(dllimport)
+#endif
 
 #include <iostream>
 #include <stdio.h>
@@ -65,7 +66,6 @@ protected:
     void exportSuccess();
 
 
-
 private:
 
     std::vector<std::pair<string, uint32_t>> reduced_vector;
@@ -78,5 +78,3 @@ private:
 
 };
 
-
-#endif //header file for encapsulated reduce class

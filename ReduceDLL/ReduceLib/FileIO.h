@@ -1,5 +1,8 @@
 #pragma once
 
+
+#ifndef _FILEIO_HEADER
+#define _FILEIO_HEADER
 #include <string>
 #include <vector>
 
@@ -104,3 +107,5 @@ private:
 
 
 };
+
+#endif
