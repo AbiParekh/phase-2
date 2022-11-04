@@ -10,7 +10,9 @@
 #include <string>
 #include <vector>
 #include "FileIO.h"
+#include "framework.h"
 
+//This Section strictly used to test DLL is accessible via MapTest.sln
 extern "C" MAPLIBRARY_API double Add(double a, double b);
 extern "C" MAPLIBRARY_API double Multiply(double a, double b);
 extern "C" MAPLIBRARY_API double AddMultiply(double a, double b);

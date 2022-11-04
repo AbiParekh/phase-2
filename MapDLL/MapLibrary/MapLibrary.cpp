@@ -1,8 +1,6 @@
 // MathLibrary.cpp : Defines the exported functions for the DLL.
-#ifndef FILEIO_HEADER
-#define FILEIO_HEADER
 
-#include "framework.h"
+
 #include "MapLibrary.h"
 
 MAPLIBRARY_API double Add(double a, double b) { return a + b; }
@@ -195,6 +193,3 @@ ostream& operator<<(ostream& os, const tokenPair& tp)
 	os << "(\"" << tp.first << "\"" << ", " << tp.second << ")";
 	return os;
 }
-
-
-#endif
