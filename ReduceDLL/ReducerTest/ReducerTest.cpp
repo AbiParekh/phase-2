@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <Windows.h>
-#include <ReducerLibrary.h>
+#include <ReduceLibrary.h>
 
 typedef double (*funcAdd)(double, double);
 typedef double (*funcMult)(double, double);
@@ -13,7 +13,7 @@ int main()
 	funcAdd Add;
 	funcMult Multiply;
 
-	const wchar_t* libName = L"ReducerLibrary";
+	const wchar_t* libName = L"ReduceLibrary";
 
 	hDLL = LoadLibraryEx(libName, NULL, NULL);   // Handle to DLL
 

@@ -1,4 +1,7 @@
 // MathLibrary.cpp : Defines the exported functions for the DLL.
+#ifndef FILEIO_HEADER
+#define FILEIO_HEADER
+
 #include "framework.h"
 #include "MapLibrary.h"
 
@@ -194,4 +197,4 @@ ostream& operator<<(ostream& os, const tokenPair& tp)
 }
 
 
-
+#endif

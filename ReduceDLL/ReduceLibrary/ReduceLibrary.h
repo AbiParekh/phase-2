@@ -1,9 +1,9 @@
 #pragma once
 
-#ifdef REDUCERLIBRARY_EXPORTS 
-#define REDUCERLIBRARY_API __declspec(dllexport)
+#ifdef REDUCELIBRARY_EXPORTS 
+#define REDUCELIBRARY_API __declspec(dllexport)
 #else 
-#define REDUCERLIBRARY_API __declspec(dllimport)
+#define REDUCELIBRARY_API __declspec(dllimport)
 #endif
 
 //#include <iostream>
@@ -19,14 +19,14 @@ using std::string;
 using std::ostream;
 
 
-extern "C" REDUCERLIBRARY_API double Add(double a, double b);
-extern "C" REDUCERLIBRARY_API double Multiply(double a, double b);
-extern "C" REDUCERLIBRARY_API double AddMultiply(double a, double b);
+extern "C" REDUCELIBRARY_API double Add(double a, double b);
+extern "C" REDUCELIBRARY_API double Multiply(double a, double b);
+extern "C" REDUCELIBRARY_API double AddMultiply(double a, double b);
 
 typedef std::pair<string, int> vec;
 ostream& operator<<(ostream& output, const vec& v);
 
-class REDUCERLIBRARY_API Reduce {
+class REDUCELIBRARY_API Reduce {
 public:
 
     //variables, method titles, constructors and destructor

@@ -1,4 +1,10 @@
 ﻿  FileIO.cpp
-  LINK : C:\Users\esevi\Source\Repos\phase-2\MapDLL\MapLibrary\x64\Debug\MapLibrary.dll not found or not built by the last incremental link; performing full link
-     Creating library C:\Users\esevi\Source\Repos\phase-2\MapDLL\MapLibrary\x64\Debug\MapLibrary.lib and object C:\Users\esevi\Source\Repos\phase-2\MapDLL\MapLibrary\x64\Debug\MapLibrary.exp
-  MapLibrary.vcxproj -> C:\Users\esevi\Source\Repos\phase-2\MapDLL\MapLibrary\x64\Debug\MapLibrary.dll
+  MapLibrary.cpp
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(84,17): warning C4251: 'Map::exportBuffer': class 'std::vector<std::string,std::allocator<std::string>>' needs to have dll-interface to be used by clients of class 'Map'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\FileIO.h(29): message : see declaration of 'std::vector<std::string,std::allocator<std::string>>'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(87,20): warning C4251: 'Map::tokenWords': class 'std::vector<tokenPair,std::allocator<tokenPair>>' needs to have dll-interface to be used by clients of class 'Map'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(87): message : see declaration of 'std::vector<tokenPair,std::allocator<tokenPair>>'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(90,9): warning C4251: 'Map::tempDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Map'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+  Generating Code...
+  MapLibrary.vcxproj -> C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\x64\Debug\MapLibrary.dll

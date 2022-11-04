@@ -21,7 +21,7 @@
     <ClInclude Include="..\ReduceLibrary\FileIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\ReduceLibrary\ReducerLibrary.h">
+    <ClInclude Include="ReduceLibrary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClCompile Include="..\ReduceLibrary\FileIO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\ReduceLibrary\ReducerLibrary.cpp">
+    <ClCompile Include="ReduceLibrary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

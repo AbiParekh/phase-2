@@ -6,5 +6,4 @@ C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(87): message 
 C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(90,9): warning C4251: 'Map::tempDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Map'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
   MapTest.vcxproj -> C:\Users\esevi\source\repos\phase-2\MapDLL\MapTest\x64\Debug\MapTest.exe
-  ..\MapLibrary\x64\Debug\MapLibrary.dll
-  1 File(s) copied
+  0 File(s) copied

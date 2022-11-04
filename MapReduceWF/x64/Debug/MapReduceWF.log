@@ -1,0 +1,42 @@
+﻿  FileIO.cpp
+  main.cpp
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(84,17): warning C4251: 'Map::exportBuffer': class 'std::vector<std::string,std::allocator<std::string>>' needs to have dll-interface to be used by clients of class 'Map'
+C:\Users\esevi\source\repos\phase-2\MapReduceWF\FileIO.h(29): message : see declaration of 'std::vector<std::string,std::allocator<std::string>>'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(87,20): warning C4251: 'Map::tokenWords': class 'std::vector<tokenPair,std::allocator<tokenPair>>' needs to have dll-interface to be used by clients of class 'Map'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(87): message : see declaration of 'std::vector<tokenPair,std::allocator<tokenPair>>'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(90,9): warning C4251: 'Map::tempDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Map'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(66,46): warning C4251: 'Reduce::reduced_vector': class 'std::vector<std::pair<std::string,uint32_t>,std::allocator<std::pair<std::string,uint32_t>>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(66): message : see declaration of 'std::vector<std::pair<std::string,uint32_t>,std::allocator<std::pair<std::string,uint32_t>>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(67,17): warning C4251: 'Reduce::outputDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(69,12): warning C4251: 'Reduce::intermediateDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(70,12): warning C4251: 'Reduce::initialDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(72,23): warning C4251: 'Reduce::outputFileName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+  MapReduceSorter.cpp
+  MapReduceWF.cpp
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(84,17): warning C4251: 'Map::exportBuffer': class 'std::vector<std::string,std::allocator<std::string>>' needs to have dll-interface to be used by clients of class 'Map'
+C:\Users\esevi\source\repos\phase-2\MapReduceWF\FileIO.h(29): message : see declaration of 'std::vector<std::string,std::allocator<std::string>>'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(87,20): warning C4251: 'Map::tokenWords': class 'std::vector<tokenPair,std::allocator<tokenPair>>' needs to have dll-interface to be used by clients of class 'Map'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(87): message : see declaration of 'std::vector<tokenPair,std::allocator<tokenPair>>'
+C:\Users\esevi\source\repos\phase-2\MapDLL\MapLibrary\MapLibrary.h(90,9): warning C4251: 'Map::tempDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Map'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(66,46): warning C4251: 'Reduce::reduced_vector': class 'std::vector<std::pair<std::string,uint32_t>,std::allocator<std::pair<std::string,uint32_t>>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(66): message : see declaration of 'std::vector<std::pair<std::string,uint32_t>,std::allocator<std::pair<std::string,uint32_t>>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(67,17): warning C4251: 'Reduce::outputDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(69,12): warning C4251: 'Reduce::intermediateDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(70,12): warning C4251: 'Reduce::initialDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLibrary\ReduceLibrary.h(72,23): warning C4251: 'Reduce::outputFileName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+  Generating Code...
+  MapReduceWF.vcxproj -> C:\Users\esevi\source\repos\phase-2\MapReduceWF\x64\Debug\MapReduceWF.exe
+  ..\MapDLL\MapLibrary\x64\Debug\MapLibrary.dll
+  1 File(s) copied
+  ..\ReduceDLL\ReduceLibrary\x64\Debug\ReduceLibrary.dll
+  1 File(s) copied

@@ -1,4 +1,4 @@
-#include "ReducerLibrary.h"
+#include "ReduceLibrary.h"
 #include "framework.h"
 //#include "FileIO.h"
 #include <iostream>
@@ -20,9 +20,9 @@ using std::ostream_iterator;
 using std::make_pair;
 using std::map;
 
-REDUCERLIBRARY_API double Add(double a, double b) { return a + b; }
-REDUCERLIBRARY_API double Multiply(double a, double b) { return a * b; }
-REDUCERLIBRARY_API double AddMultiply(double a, double b) { return a + (a * b); }
+REDUCELIBRARY_API double Add(double a, double b) { return a + b; }
+REDUCELIBRARY_API double Multiply(double a, double b) { return a * b; }
+REDUCELIBRARY_API double AddMultiply(double a, double b) { return a + (a * b); }
 
 /*Takes an input with a key and its respective values ("for, [1,1,1,]")
     Sums up all values for each key, and returns a vector with all reduced values
