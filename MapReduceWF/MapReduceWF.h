@@ -7,7 +7,7 @@
 #include "MapReduceSorter.h"
 #include "FileIO.h"
 #include <MapLibrary.h>
-#include <ReduceLibrary.h>
+#include <ReduceLib.h>
 
 
 class MapReducer
