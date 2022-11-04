@@ -1,15 +1,12 @@
-﻿  FileIO.cpp
-  ReduceLib.cpp
-C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(71,46): warning C4251: 'Reduce::reduced_vector': class 'std::vector<std::pair<std::string,uint32_t>,std::allocator<std::pair<std::string,uint32_t>>>' needs to have dll-interface to be used by clients of class 'Reduce'
-C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(71): message : see declaration of 'std::vector<std::pair<std::string,uint32_t>,std::allocator<std::pair<std::string,uint32_t>>>'
-C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(72,17): warning C4251: 'Reduce::outputDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+﻿  ReduceLib.cpp
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(66,46): warning C4251: 'Reduce::reduced_vector': class 'std::vector<std::pair<std::string,uint32_t>,std::allocator<std::pair<std::string,uint32_t>>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(66): message : see declaration of 'std::vector<std::pair<std::string,uint32_t>,std::allocator<std::pair<std::string,uint32_t>>>'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(67,17): warning C4251: 'Reduce::outputDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
-C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(74,12): warning C4251: 'Reduce::intermediateDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(69,12): warning C4251: 'Reduce::intermediateDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
-C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(75,12): warning C4251: 'Reduce::initialDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(70,12): warning C4251: 'Reduce::initialDirectory': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
-C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(77,23): warning C4251: 'Reduce::outputFileName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
+C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\ReduceLib.h(72,23): warning C4251: 'Reduce::outputFileName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Reduce'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(5186): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
-  Generating Code...
-     Creating library C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\x64\Debug\ReduceLib.lib and object C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\x64\Debug\ReduceLib.exp
   ReduceLib.vcxproj -> C:\Users\esevi\source\repos\phase-2\ReduceDLL\ReduceLib\x64\Debug\ReduceLib.dll

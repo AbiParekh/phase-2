@@ -1,28 +1,5 @@
 #include "ReduceLib.h"
-#include "framework.h"
 
-//#include "MapReduceSorter.h"
-//#include "fileIO.h"
-#include <iostream>
-#include <stdio.h>
-#include <string>
-#include <iterator>
-#include <iomanip>
-#include <vector>
-#include <cstdlib>
-#include <utility>
-#include <fstream>
-#include <map>
-using namespace std;
-
-using std::string;
-using std::vector;
-using std::ostream;
-using std::fstream;
-using std::ifstream;
-using std::ostream_iterator;
-using std::make_pair;
-using std::map;
 
 REDUCELIB_API double Add(double a, double b) { return a + b; }
 REDUCELIB_API double Multiply(double a, double b) { return a * b; }
@@ -78,7 +55,7 @@ bool Reduce::reduceFile(const string& folderPath, const string& fileName, std::s
     }
     else
     {
-        cout << "ERROR: Sorted data was not imported to reducer" << endl;
+        std::cout << "ERROR: Sorted data was not imported to reducer" << std::endl;
         dataAttained = false;
     }
 

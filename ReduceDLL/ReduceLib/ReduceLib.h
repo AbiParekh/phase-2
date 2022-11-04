@@ -9,24 +9,19 @@
 #endif
 
 #include <iostream>
-#include <stdio.h>
 #include <string>
-#include <iterator>
-#include <iomanip>
 #include <vector>
-#include <cstdlib>
-#include <utility>
-#include <fstream>
 #include "FileIO.h"
+#include "framework.h"
 
 using std::vector;
 using std::string;
 using std::ostream;
 
+//This Section strictly used to test DLL is accessible via ReduceTest.sln
 extern "C" REDUCELIB_API double Add(double a, double b);
 extern "C" REDUCELIB_API double Multiply(double a, double b);
 extern "C" REDUCELIB_API double AddMultiply(double a, double b);
-
 
 
 typedef std::pair<string, int> vec;
