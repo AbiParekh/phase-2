@@ -24,15 +24,21 @@
     <ClInclude Include="FileIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="dllReduceExport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReduceInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ReduceLib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FileIO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllReduceExport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

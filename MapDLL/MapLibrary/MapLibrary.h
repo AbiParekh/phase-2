@@ -1,21 +1,11 @@
 #pragma once
 
-#ifdef MAPLIBRARY_EXPORTS
-#define MAPLIBRARY_API __declspec(dllexport)
-#else
-#define MAPLIBRARY_API __declspec(dllimport)
-#endif
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include "FileIO.h"
 #include "framework.h"
-
-//This Section strictly used to test DLL is accessible via MapTest.sln
-extern "C" MAPLIBRARY_API double Add(double a, double b);
-extern "C" MAPLIBRARY_API double Multiply(double a, double b);
-extern "C" MAPLIBRARY_API double AddMultiply(double a, double b);
+#include "MapInterface.h"
 
 using std::string;
 using std::vector;
@@ -28,7 +18,8 @@ typedef std::pair<string, int> tokenPair;
 //Overloads << operator for streaming tokenPair type
 ostream& operator<<(ostream& os, const tokenPair& tp);
 
-class MAPLIBRARY_API Map
+//class MAPLIBRARY_API Map
+class Map : public InterfaceMap
 {
 public:
 
@@ -51,14 +42,15 @@ public:
 	//tokenizes words, accepts a key(filename) and value(single line) from fileIO
 	 bool createMap(string filename, string inputLine);
 
-	//tokenizes words, accepts a key(filepath), key(filename) and value(single line) from fileIO
-	bool createMap(const string filepath, const string filename, const string inputLine);
-
 	//clears Maps contents, prepares to read in new file
 	bool flushMap(const string filename);
 
 	// converts a string into lowercase
 	string lowerCaseMap(const string&);
+
+	void setParameters(const string intermediate, size_t sizeOfBuffer);
+	
+	void ProofDLLWorks();
 
 protected: // PRIVATE MEMBER FUNCTIONS 
 

@@ -133,13 +133,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="dllMapExport.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="MapInterface.h" />
     <ClInclude Include="MapLibrary.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dllMapExport.cpp" />
     <ClCompile Include="FileIO.cpp" />
-    <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MapLibrary.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
