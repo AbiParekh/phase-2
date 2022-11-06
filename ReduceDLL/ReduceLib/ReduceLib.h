@@ -1,36 +1,24 @@
 //ReduceLib.h - contains declarations of reduce class
-
 #pragma once
-
-#ifdef REDUCELIB_EXPORTS
-#define REDUCELIB_API __declspec(dllexport)
-#else
-#define REDUCELIB_API __declspec(dllimport)
-#endif
 
 #include <iostream>
 #include <string>
 #include <vector>
 #include "FileIO.h"
 #include "framework.h"
+#include "ReduceInterface.h"
 
 using std::vector;
 using std::string;
-using std::ostream;
-
-//This Section strictly used to test DLL is accessible via ReduceTest.sln
-extern "C" REDUCELIB_API double Add(double a, double b);
-extern "C" REDUCELIB_API double Multiply(double a, double b);
-extern "C" REDUCELIB_API double AddMultiply(double a, double b);
-
 
 typedef std::pair<string, int> vec;
-ostream& operator<<(ostream& output, const vec& v);
 
-class REDUCELIB_API Reduce {
+class Reduce : public ReduceInterface 
+{
 public:
 
     //variables, method titles, constructors and destructor
+    Reduce();
 
     Reduce(std::string OutputDirectory);
     //constructor
@@ -45,6 +33,11 @@ public:
     //import data from sorter class
     //pass 
 
+    void ProofDLLWorks()
+    {
+        std::cout << "Your were the chosen one Anikin!" << std::endl;
+        std::cout << "I live my life a quarter mile at a time" << std::endl;
+    }
 
 protected:
 

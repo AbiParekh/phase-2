@@ -42,9 +42,6 @@ public:
 	//tokenizes words, accepts a key(filename) and value(single line) from fileIO
 	 bool createMap(string filename, string inputLine);
 
-	//tokenizes words, accepts a key(filepath), key(filename) and value(single line) from fileIO
-	bool createMap(const string filepath, const string filename, const string inputLine);
-
 	//clears Maps contents, prepares to read in new file
 	bool flushMap(const string filename);
 

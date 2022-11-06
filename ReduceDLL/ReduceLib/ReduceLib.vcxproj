@@ -137,14 +137,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="dllReduceExport.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="ReduceInterface.h" />
     <ClInclude Include="ReduceLib.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="ReduceLib.cpp" />
+    <ClCompile Include="dllReduceExport.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,17 +1,12 @@
 #include "ReduceLib.h"
 
-
-REDUCELIB_API double Add(double a, double b) { return a + b; }
-REDUCELIB_API double Multiply(double a, double b) { return a * b; }
-REDUCELIB_API double AddMultiply(double a, double b) { return a + (a * b); }
-
-
 /*Takes an input with a key and its respective values ("for, [1,1,1,]")
     Sums up all values for each key, and returns a vector with all reduced values
     export function writes out to a file with the reduced values
     output a file written with success at the end.*/
 
-
+Reduce::Reduce()
+    : bufferLimit(2048) {}
 
 Reduce::Reduce(std::string OutputDir)
     : bufferLimit(2048),

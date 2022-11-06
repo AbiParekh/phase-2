@@ -2,43 +2,53 @@
 //
 
 #include <iostream>
-//#include "ReduceLib.h"
 #include <Windows.h>
+#include "ReduceInterface.h"
+#include <iostream>
+#include <filesystem>
 
-typedef double (*funcAdd)(double, double);
-typedef double (*funcMult)(double, double);
+namespace fs = std::filesystem;
+
+typedef void* (*pvFunctv)();
+
 int main()
 {
-	HINSTANCE hDLL;
-	funcAdd Add;
-	funcMult Multiply;
+	HINSTANCE hdll = NULL;
+	ReduceInterface* piFoo = NULL;
+	pvFunctv CreateFoo;
 
-	const wchar_t* libName = L"ReduceLib";
+	std::cout << "Current path is " << fs::current_path() << '\n'; // (1)
+    std::cout << "Current path is " << fs::current_path() << '\n';
+	
+	hdll = LoadLibrary(TEXT("..\\ReduceLib\\x64\\Debug\\ReduceLib.dll"));
 
-	hDLL = LoadLibraryEx(libName, NULL, NULL);   // Handle to DLL
+	if (hdll != NULL)
+	{
+		CreateFoo = (pvFunctv)(GetProcAddress(hdll, "CreateReduceClassInstance"));
+		if (CreateFoo != nullptr)
+		{
+			piFoo = static_cast<ReduceInterface*> (CreateFoo());	// get pointer to object
 
-	if (hDLL != NULL) {
-		Add = (funcAdd)GetProcAddress(hDLL, "Add");
-		Multiply = (funcMult)GetProcAddress(hDLL, "Multiply");
-		if (Add != NULL) {
-			std::cout << "10 + 10 = " << Add(10, 10) << std::endl;
+			if (piFoo != NULL)
+			{
+				piFoo->ProofDLLWorks();
+			}
+			else
+			{
+				std::cout << "Could not create ReduceInterface Class." << std::endl;
+			}
 		}
 		else
-			std::cout << "Did not load Add correctly." << std::endl;
-		if (Multiply != NULL) {
-			std::cout << "50 * 10 = " << Multiply(50, 10) << std::endl;
+		{
+			std::cout << "Did not load CreateReduceClassInstance correctly." << std::endl;
 		}
-		else
-			std::cout << "Did not load Multiply correctly." << std::endl;
 
-
+		FreeLibrary(hdll);
 	}
-	else {
-		std::cout << "Library cannot be loaded!" << std::endl;
+	else
+	{
+		std::cout << "Library load failed!" << std::endl;
 	}
-
-	std::cin.get();
-	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
