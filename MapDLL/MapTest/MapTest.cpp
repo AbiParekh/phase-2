@@ -3,41 +3,43 @@
 
 #include <iostream>
 #include <Windows.h>
-#include <MapLibrary.h>
 
-typedef double (*funcAdd)(double, double);
-typedef double (*funcMult)(double, double);
+#include "MapInterface.h"
+
+typedef void* (*pvFunctv)();
+
+
 int main()
 {
-	HINSTANCE hDLL;
-	funcAdd Add;
-	funcMult Multiply;
-	Map mybook("TEST", 3000);
+	HINSTANCE hdll = NULL;
+	InterfaceMap* piFoo = NULL;
+	pvFunctv CreateFoo;
+	hdll = LoadLibrary(TEXT("MapLibrary.dll"));
 
-	const wchar_t* libName = L"MapLibrary";
+	if (hdll != NULL) {
+		CreateFoo = (pvFunctv) (GetProcAddress(hdll, "CreateMapClassInstance"));
+		if (CreateFoo != nullptr)
+		{
+			piFoo = static_cast<InterfaceMap*> (CreateFoo());	// get pointer to object
 
-	hDLL = LoadLibraryEx(libName, NULL, NULL);   // Handle to DLL
-
-	if (hDLL != NULL) {
-		Add = (funcAdd)GetProcAddress(hDLL, "Add");
-		Multiply = (funcMult)GetProcAddress(hDLL, "Multiply");
-		if (Add != NULL) {
-			std::cout << "10 + 10 = " << Add(10, 10) << std::endl;
+			if (piFoo != NULL)
+			{
+				piFoo->ProofDLLWorks();
+			}
+			else
+			{
+				std::cout << "Could not create InterfaceMap Class." << std::endl;
+			}
 		}
 		else
-			std::cout << "Did not load Add correctly." << std::endl;
-		if (Multiply != NULL) {
-			std::cout << "50 * 10 = " << Multiply(50, 10) << std::endl;
+		{
+			std::cout << "Did not load CreateFooClassInstance correctly." << std::endl;
 		}
-		else
-			std::cout << "Did not load Multiply correctly." << std::endl;
 
-
-		//std::cout << mybook.lowerCaseMap("HI, THIS SHOULD ALL BE LOWER CASE") << std::endl;
-		std::cout << mybook.lowerCaseMap("HI, THIS IS AN ALL CAPS STRING") << std::endl;
-		FreeLibrary(hDLL);
+		FreeLibrary(hdll);
 	}
-	else {
+	else 
+	{
 		std::cout << "Library load failed!" << std::endl;
 	}
 

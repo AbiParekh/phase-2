@@ -3,10 +3,6 @@
 
 #include "MapLibrary.h"
 
-MAPLIBRARY_API double Add(double a, double b) { return a + b; }
-MAPLIBRARY_API double Multiply(double a, double b) { return a * b; }
-MAPLIBRARY_API double AddMultiply(double a, double b) { return a + (a * b); }
-
 
 Map::Map()
 	:maxBufferSize{ 1024 } // defaults sizeOfBuffer to 1k tokenPairs
@@ -34,6 +30,18 @@ Map::Map(const Map& t)
 	mapFileManager = t.mapFileManager;
 	fileIndex = t.fileIndex;
 
+}
+
+void Map::ProofDLLWorks()
+{
+	std::cout << "WELCOME TO THE THUNDERDOME" << std::endl;
+	std::cout << "Your A WIZARD HARRY" << std::endl;
+}
+
+void Map::setParameters(const string intermediateIn, size_t sizeOfBufferIn)
+{
+	tempDirectory = intermediateIn;
+	maxBufferSize = sizeOfBufferIn;
 }
 
 bool Map::removePunctuation(const string str, const int tokenStart, const int tokenEnd)
