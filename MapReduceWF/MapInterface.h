@@ -19,5 +19,5 @@ public:
 
 	virtual void setParameters(const string intermediate, size_t sizeOfBuffer) = 0;
 
-	virtual void ProofDLLWorks() =0;
+	virtual void ProofDLLWorks() = 0;
 };

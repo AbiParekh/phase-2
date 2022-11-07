@@ -35,5 +35,11 @@
     <ClInclude Include="MapReduceSorter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MapInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReduceInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

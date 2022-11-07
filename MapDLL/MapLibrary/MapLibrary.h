@@ -19,7 +19,7 @@ typedef std::pair<string, int> tokenPair;
 ostream& operator<<(ostream& os, const tokenPair& tp);
 
 //class MAPLIBRARY_API Map
-class Map : public InterfaceMap
+class Map : public MapInterface
 {
 public:
 

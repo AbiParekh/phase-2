@@ -5,17 +5,19 @@
 
 
 #include "MapReduceWF.h"
-//#include "FileIO.h"
+#include "ReduceInterface.h"
+#include "MapInterface.h"
 #include <iostream>
+#include <Windows.h>
 // PUBLIC METHODS
+
+typedef void* (*pvFunctv)();
 
 MapReducer::MapReducer(std::string inputDir, std::string outputDir, std::string middleDir) :
 	inputDirectory_(inputDir),
 	outputDirectory_(outputDir),
 	intermediateDirectory_(middleDir),
-	mapSorter(folderNameForMapOutput, folderNameForSorterOutput),
-	mapBook(intermediateDirectory_ + "\\" + folderNameForMapOutput, bufferSize),
-	reduceOb(outputDir)
+	mapSorter(folderNameForMapOutput, folderNameForSorterOutput)
 {}
 
 
@@ -59,6 +61,8 @@ void MapReducer::setIntermediateDir(std::string middle)
 bool MapReducer::validateDirectories()
 {
 	bool results = fileManager.validDirectory(inputDirectory_);
+	// SROA: Determine if Directory Existing if it does and its not valid
+	// if not Create a directory on the same level as output 
 	results = results && fileManager.validDirectory(outputDirectory_);
 	results = results && fileManager.validDirectory(intermediateDirectory_);
 	if (results == true)
@@ -92,31 +96,72 @@ Later the reducer is called to collect each instance for a ketword and sum it to
 to the outputDirectory*/
 bool MapReducer::doReduce(std::string& outputFileName)
 {
+	std::vector<std::string> fileList;
+
 	if (validateDirectories())
 	{
-		// For the input Directory read the list of files 
-		std::vector<std::string> fileList;
-		fileManager.getListOfTextFiles(inputDirectory_, fileList);
 
-		// Input Processing and Map Call for Each file 
-		for (size_t fileCount = 0; fileCount < fileList.size(); fileCount++)
+		HINSTANCE hdllMap = NULL;
+		MapInterface* piMap = NULL;
+		pvFunctv CreateMap;
+		hdllMap = LoadLibrary(TEXT("..\\MapDLL\\MapLibrary\\x64\\Debug\\MapLibrary.dll"));
+
+		if (hdllMap != NULL)
 		{
-			std::vector<std::string> lines;
-			// Read Each File Into a Vector of Strings 
-			if (fileManager.readFileIntoVector(inputDirectory_, fileList.at(fileCount), lines))
+			CreateMap = (pvFunctv)(GetProcAddress(hdllMap, "CreateMapClassInstance"));
+			if (CreateMap != nullptr)
 			{
-				// Call the Map Function for each Line
-				for (size_t fileLine = 0; fileLine < lines.size(); fileLine++)
-				{
-					//Map Function --> Map
-					mapBook.createMap(fileList.at(fileCount), lines.at(fileLine));
-				}
+				 piMap = static_cast<MapInterface*> (CreateMap());	// get pointer to object
 
-				//Map Function --> Export
-				mapBook.flushMap(fileList.at(fileCount));
-				lines.resize(0);
+				if (piMap != NULL)
+				{
+					piMap->ProofDLLWorks();
+					/*
+					piMap->setParameters(intermediateDirectory_, maxBufferSize);
+
+					// For the input Directory read the list of files 
+					fileManager.getListOfTextFiles(inputDirectory_, fileList);
+
+					// Input Processing and Map Call for Each file 
+					for (size_t fileCount = 0; fileCount < fileList.size(); fileCount++)
+					{
+						std::vector<std::string> lines;
+						// Read Each File Into a Vector of Strings 
+						if (fileManager.readFileIntoVector(inputDirectory_, fileList.at(fileCount), lines))
+						{
+							// Call the Map Function for each Line
+							for (size_t fileLine = 0; fileLine < lines.size(); fileLine++)
+							{
+								//Map Function --> Map
+								piMap->createMap(fileList.at(fileCount), lines.at(fileLine));
+							}
+
+							//Map Function --> Export
+							piMap->flushMap(fileList.at(fileCount));
+							lines.resize(0);
+						}
+					}
+					*/
+				}
+				else
+				{
+					std::cout << "Error: Could not create MapInterface Class." << std::endl;
+					return false;
+				}
 			}
+			else
+			{
+				std::cout << "Error: Did not load CreateMapClassInstance correctly." << std::endl;
+				return false; 
+			}
+
 		}
+		else
+		{
+			std::cout << "Error: Map Library load failed!" << std::endl;
+			return false;
+		}
+		
 
 		fileList.clear();
 		std::string sortedFileName;
@@ -128,11 +173,46 @@ bool MapReducer::doReduce(std::string& outputFileName)
 			return false;
 		}
 
-		if (!reduceOb.reduceFile(outputSortDirectory, sortedFileName, outputFileName)) // Pulls File and puts entire line into Vect
+		HINSTANCE hdllReduce = NULL;
+		ReduceInterface* piReduce = NULL;
+		pvFunctv CreateReduce;
+		hdllReduce = LoadLibrary(TEXT("..\\ReduceDLL\\ReduceLib\\x64\\Debug\\ReduceLib.dll"));
+
+		if (hdllReduce != NULL)
 		{
-			std::cout << "ERROR: Unable to import Sorted Data into Reducer" << std::endl;
+			CreateReduce = (pvFunctv)(GetProcAddress(hdllReduce, "CreateReduceClassInstance"));
+			if (CreateReduce != nullptr)
+			{
+				piReduce = static_cast<ReduceInterface*> (CreateReduce());	// get pointer to object
+
+				if (piReduce != NULL)
+				{
+					if (!piReduce->reduceFile(outputSortDirectory, sortedFileName, outputFileName)) // Pulls File and puts entire line into Vect
+					{
+						std::cout << "ERROR: Unable to import Sorted Data into Reducer" << std::endl;
+						return false;
+					}
+				}
+				else
+				{
+					std::cout << "Error: Could not create ReduceInterface Class." << std::endl;
+					return false;
+				}
+			}
+			else
+			{
+				std::cout << "Error: Did not load CreateReduceClassInstance correctly." << std::endl;
+				return false;
+			}
+
+		}
+		else
+		{
+			std::cout << "Error: Reduce Library load failed!" << std::endl;
 			return false;
 		}
+
+		
 	}
 	else
 	{
