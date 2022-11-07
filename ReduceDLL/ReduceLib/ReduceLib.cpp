@@ -1,14 +1,5 @@
 #include "ReduceLib.h"
 
-<<<<<<< HEAD
-
-REDUCELIB_API double Add(double a, double b) { return a + b; }
-REDUCELIB_API double Multiply(double a, double b) { return a * b; }
-REDUCELIB_API double AddMultiply(double a, double b) { return a + (a * b); }
-REDUCELIB_API Reduce;
-
-=======
->>>>>>> d079b46d75ed6be8ec4fb992c624265fbd9d6d99
 /*Takes an input with a key and its respective values ("for, [1,1,1,]")
     Sums up all values for each key, and returns a vector with all reduced values
     export function writes out to a file with the reduced values
@@ -33,6 +24,11 @@ Reduce::Reduce(const string tMemory, size_t bufferSize)
 Reduce::~Reduce()
 //destructor
 {};
+
+void Reduce::setParameters(std::string OutputDirIn)
+{
+    outputDirectory = OutputDirIn;
+}
 
 //from sorter grab the sorted data 
 //then insert the data into an input vector, then send it to the reduce method
