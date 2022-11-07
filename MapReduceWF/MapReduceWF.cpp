@@ -56,21 +56,69 @@ void MapReducer::setIntermediateDir(std::string middle)
 	intermediateDirectory_ = middle;
 }
 
+bool MapReducer::setDefaultDirectory(std::string defaultDir)
+{
+	bool results = fileManager.validDirectory("..\\" + defaultDir + "Dir_Default");
+
+	// check if a default directory exists
+	if (results == false)
+	{
+		results = fileManager.createDirectory("..\\", defaultDir + "Dir_Default"); //temp directory in working folder
+		if (results == false)
+		{
+			std::cout << "Terminating: Failed to create default " + defaultDir + " directory" << std::endl;
+			return results;
+		}
+		std::cout << "INFO: New output directory ..\\" + defaultDir + "Dir_Default created successfully!" << std::endl;
+	}
+	return results;
+	//setOutputDir("..\\OutputDir_Default");
+}
+
 
 // PRIVATE METHODS 
 bool MapReducer::validateDirectories()
 {
+	//Check Input Directory
 	bool results = fileManager.validDirectory(inputDirectory_);
-	// SROA: Determine if Directory Existing if it does and its not valid
-	// if not Create a directory on the same level as output 
+	if (results == false)
+	{
+		std::cout << "Assert Failure: You must specify a valid input Directory" << std::endl;
+		return results;
+	}
+
+	//Check Output Directory
 	results = results && fileManager.validDirectory(outputDirectory_);
+	if (results == false)
+	{
+		results = setDefaultDirectory("output");
+		if (results == false) { return results; }
+		setOutputDir("..\\outputDir_Default");
+		std::cout << "INFO: Output directory set to default: ..\\outputDir_Default" << std::endl;
+	}
+
+	//Check Intermediate Directory
 	results = results && fileManager.validDirectory(intermediateDirectory_);
+	if (results == false)
+	{
+		results = setDefaultDirectory("middle");
+		if (results == false) { return results; }
+		setIntermediateDir("..\\middleDir_Default");
+		std::cout << "INFO: intermediate directory set to default: ..\\middleDir_Default" << std::endl;
+	}
+
 	if (results == true)
 	{
 		results = results && fileManager.createDirectory(intermediateDirectory_, folderNameForMapOutput);
 		results = results && fileManager.createDirectory(intermediateDirectory_, folderNameForSorterOutput);
+		if (results == false)
+		{
+			std::cout << "Couldn't create MapOutput or SorterOutput, Terminating" << std::endl;
+			return results;
+		}
 	}
 
+	//Clear Output Directory
 	if (results == true)
 	{
 		std::vector<std::string> fileList;
@@ -85,7 +133,6 @@ bool MapReducer::validateDirectories()
 				results = false;
 			}
 		}
-
 	}
 	return results;
 }
@@ -116,8 +163,8 @@ bool MapReducer::doReduce(std::string& outputFileName)
 				if (piMap != NULL)
 				{
 					piMap->ProofDLLWorks();
-					/*
-					piMap->setParameters(intermediateDirectory_, maxBufferSize);
+					
+					piMap->setParameters(intermediateDirectory_ + "\\" + folderNameForMapOutput, 3000);
 
 					// For the input Directory read the list of files 
 					fileManager.getListOfTextFiles(inputDirectory_, fileList);
@@ -141,7 +188,7 @@ bool MapReducer::doReduce(std::string& outputFileName)
 							lines.resize(0);
 						}
 					}
-					*/
+					
 				}
 				else
 				{

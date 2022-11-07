@@ -41,5 +41,8 @@
     <ClInclude Include="ReduceInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\ReduceDLL\ReduceLib\FileIO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
