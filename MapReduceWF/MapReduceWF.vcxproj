@@ -149,6 +149,7 @@
     <ClCompile Include="MapReduceWF.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\ReduceDLL\ReduceLib\FileIO.h" />
     <ClInclude Include="MapInterface.h" />
     <ClInclude Include="MapReduceWF.h" />
     <ClInclude Include="MapReduceSorter.h" />

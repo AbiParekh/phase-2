@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 void printBanner()
 {
 	// Print Banner to Screen
-	std::cout << "------------------------- Phase 1 - Map Reducer ------------------------" << std::endl;
+	std::cout << "------------------------- Phase 2 - Map Reducer ------------------------" << std::endl;
 #ifdef PRINT_DEBUG	
 	std::cout << "C++ Version is " << __cplusplus << std::endl;
 #endif

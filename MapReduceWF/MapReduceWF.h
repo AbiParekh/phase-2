@@ -29,6 +29,8 @@ public:
 
 	void setIntermediateDir(std::string);
 
+	bool setDefaultDirectory(std::string);
+
 private:
 
 	/// <summary>
