@@ -81,13 +81,13 @@ bool MapReducer::validateDirectories()
 {
 	//Check Input Directory
 	bool results = fileManager.validDirectory(inputDirectory_);
+	// SROA: Determine if Directory Existing if it does and its not valid
 	if (results == false)
 	{
-		std::cout << "Assert Failure: You must specify a valid input Directory" << std::endl;
+		std::cout << "ERROR: You must specify a valid input Directory" << std::endl;
 		return results;
 	}
 
-	//Check Output Directory
 	results = results && fileManager.validDirectory(outputDirectory_);
 	if (results == false)
 	{
