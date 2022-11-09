@@ -214,12 +214,11 @@ bool MapReducer::doReduce(std::string& outputFileName)
 	if (validateDirectories())
 	{
 		std::shared_ptr<MapInterface> mapIF = nullptr;
-		std::string mapdllLocation = "..\\MapDLL\\MapLibrary\\x64\\Debug\\MapLibrary.dll";
 		std::vector<std::string> fileList;
 		std::string sortedFileName;
 		std::string outputMapDirectory = intermediateDirectory_ + "\\" + folderNameForMapOutput;
 		std::string outputSortDirectory = intermediateDirectory_ + "\\" + folderNameForSorterOutput;
-		if (!MapStepDLL(mapdllLocation, outputMapDirectory)) return false;
+		if (!MapStepDLL(mapDllLocation_, outputMapDirectory)) return false;
 		
 
 		if (!mapSorter.sortMappedFiles(outputMapDirectory, outputSortDirectory, sortedFileName))
@@ -228,8 +227,7 @@ bool MapReducer::doReduce(std::string& outputFileName)
 			return false;
 		}
 		
-		std::string ReduceDllLocaiton = "..\\ReduceDLL\\ReduceLib\\x64\\Debug\\ReduceLib.dll";
-		if (!ReduceStepDLL(ReduceDllLocaiton, outputSortDirectory, sortedFileName, outputFileName)) return false;		
+		if (!ReduceStepDLL(reduceDllLocation_, outputSortDirectory, sortedFileName, outputFileName)) return false;
 	}
 	else
 	{

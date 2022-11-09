@@ -34,6 +34,9 @@ int main(int argc, char* argv[])
 	else if (argumentVector.size() == 5)
 	{
 		argumentVector.push_back(""); // Push Middle Directory
+	}
+	else if (argumentVector.size() == 6)
+	{
 
 	}
 	else
