@@ -25,7 +25,18 @@ int main(int argc, char* argv[])
 	{
 		return -1;
 	}
-	else if (argumentVector.size() != 4)
+	else if (argumentVector.size() == 4)
+	{
+		argumentVector.push_back(""); // Push Output Directory 
+		argumentVector.push_back(""); // Push Middle Directory
+
+	}
+	else if (argumentVector.size() == 5)
+	{
+		argumentVector.push_back(""); // Push Middle Directory
+
+	}
+	else
 	{
 		printHelp();
 		return -1;

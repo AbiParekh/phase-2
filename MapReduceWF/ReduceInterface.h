@@ -11,4 +11,6 @@ public:
 	virtual bool reduceFile(const std::string& folderPath, const std::string& fileName, std::string& outFile) = 0;
 
 	virtual void ProofDLLWorks() = 0;
+
+	virtual void setParameters(string OutputDirectory) = 0;
 };

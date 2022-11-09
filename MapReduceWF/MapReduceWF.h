@@ -6,6 +6,10 @@
 #include <string>
 #include "MapReduceSorter.h"
 #include "FileIO.h"
+#include "ReduceInterface.h"
+#include "MapInterface.h"
+
+typedef void* (*pvFunctv)();
 
 class MapReducer
 {
@@ -13,7 +17,7 @@ class MapReducer
 public:
 
 	// Constructor with inputs
-	MapReducer(std::string inputDir, std::string outputDir, std::string middleDir);
+	MapReducer(std::string mapDll, std::string reduceDll, std::string inputDir, std::string outputDir, std::string middleDir);
 
 	bool reduce(std::string& outputFileName);
 
@@ -40,6 +44,10 @@ private:
 
 	bool doReduce(std::string& outputFileName);
 
+	bool MapStepDLL(std::string& dllLocaiton, const std::string& outputMapDirectory);
+
+	bool ReduceStepDLL(const std::string& dllLocaiton, const std::string& outputSortDirectory, const std::string&, std::string&);
+
 	// Variables with Map Reducer
 	const std::string folderNameForMapOutput = "MapOutput";
 
@@ -56,6 +64,9 @@ private:
 	// Input Argument provide at time of construction with the location of an existing temporary directory for storing working files
 	std::string intermediateDirectory_;
 
+	std::string mapDllLocation_;
+
+	std::string reduceDllLocation_;
 	// Map Object 
 	FileIOManagement fileManager;
 
