@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 	}
 
 	// Pass in Directories into construction of Map Reducer
-	MapReducer mapReducer(argumentVector.at(1), argumentVector.at(2), argumentVector.at(3));
+	MapReducer mapReducer(argumentVector.at(1), argumentVector.at(2), argumentVector.at(3), argumentVector.at(4), argumentVector.at(5));
 	std::string outputFileName = ""; //TODO
 	if (mapReducer.reduce(outputFileName))
 	{
@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
 void printBanner()
 {
 	// Print Banner to Screen
-	std::cout << "------------------------- Phase 1 - Map Reducer ------------------------" << std::endl;
+	std::cout << "------------------------- Phase 2 - Map Reducer ------------------------" << std::endl;
 #ifdef PRINT_DEBUG	
 	std::cout << "C++ Version is " << __cplusplus << std::endl;
 #endif
@@ -72,10 +72,13 @@ void printBanner()
 
 void printHelp()
 {
-	std::cout << "The Program should be provided 3 Arguments in the following Order: (Paths should be relative) " << std::endl;
-	std::cout << "     a) Path to the Directory that holds input files.\n" <<
-		"     b) Path to the Directory to hold output file. \n" <<
-		"     c) Temporary directory to hold intermediate output files. \n " << std::endl;
+	std::cout << "The Program should be provided 3-5 Arguments in the following Order: (Paths should be relative) " << std::endl;
+	std::cout << 
+		"     a) Path to the Map DLL \n" <<
+		"     b) Path to the Reduce DLL \n" << 
+		"     c) Path to the Directory that holds input files.\n" <<
+		"     d) Path to the Directory to hold output file. (Optional) \n" <<
+		"     e) Temporary directory to hold intermediate output files. (Optional) \n " << std::endl;
 }
 
 void convertArgsToStrings(int numberOfArguments, char* argumentArray[], std::vector<std::string>& argumentVector)

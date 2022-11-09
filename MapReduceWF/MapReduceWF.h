@@ -33,6 +33,8 @@ public:
 
 	void setIntermediateDir(std::string);
 
+	bool setDefaultDirectory(std::string);
+
 private:
 
 	/// <summary>
@@ -74,9 +76,3 @@ private:
 	MapSorter mapSorter;
 
 };
-
-//instantiate Reduce object
-//Reduce reduceBook{intermediateDirectory_, bufferSize //with buffer memory
-
-
-// TODO: Reference additional headers your program requires here.
